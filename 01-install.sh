@@ -33,18 +33,11 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-sudo docker run hello-world
-
-sudo groupadd docker
-
-sudo usermod -aG docker $USER
+sudo apt-get install containerd.io
 
 sudo apt-get install -y kubelet kubeadm kubectl
+
 # important, so that apt doesn't do an auto upgrade to these packages as newer version maybe incompatible with currect configuration
 sudo apt-mark hold kubelet kubeadm kubectl
-
-sudo systemctl enable docker.service
 
 sudo systemctl enable containerd.service

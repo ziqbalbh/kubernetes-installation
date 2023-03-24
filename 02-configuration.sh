@@ -38,7 +38,7 @@ sudo kubeadm token create --print-join-command
 #########################################
 # Only on worker nodes
 #########################################
--sudo kubeadm join command from the terminal
+#sudo kubeadm join command from the terminal
 
 ########################################################################################################################
 # Only in master or if you have copied cluster config file to your host machine and your host machine has kubectl binary

@@ -1,8 +1,10 @@
 # Official Calico documentation :: https://docs.projectcalico.org
+chmod +x /usr/local/bin/calicoctl
 
-curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.21.5/calicoctl-linux-amd64
-chmod +x calicoctl-linux-amd64
-sudo mv calicoctl-linux-amd64 /usr/local/bin/calicoctl
+curl -O calicoctl -L  https://github.com/projectcalico/calico/releases/download/v3.25.0/calicoctl-linux-amd64
+sudo mv calicoctl /usr/local/bin/calicoctl
+sudo chown +x $(id -u):$(id -g) /usr/local/bin/calicoctl
+
 
 vi calicoctl.cfg
 
@@ -18,9 +20,11 @@ sudo mkdir -p /etc/calico
 sudo cp calicoctl.cfg /etc/calico
 
 
-kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
 
-curl -O -L https://docs.projectcalico.org/manifests/custom-resources.yaml
+
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
+
+curl -L -O https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
 
 apiVersion: operator.tigera.io/v1
 kind: Installation

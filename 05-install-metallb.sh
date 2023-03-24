@@ -29,7 +29,7 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 192.168.18.2-192.168.18.100
+  - 172.16.20.4-172.16.20.6
 
 # let us apply it
 kubectl apply -f metallb-pool.yaml
